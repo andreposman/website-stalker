@@ -1,5 +1,6 @@
-https://random-status-code.herokuapp.com/ 
+https://random-status-code.herokuapp.com 
 https://www.google.com 
-http://andreposman.surge.sh/ 
-https://github.com
-https://www.dafiti.com.br
+http://www.andreposman.surge.sh
+https://www.github.com
+http://www.dafiti.com.br
+http://www.dafiti.com.br

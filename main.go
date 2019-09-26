@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"strconv"
@@ -26,8 +27,10 @@ func main() {
 		case 1:
 			startMonitoring()
 		case 2:
-			fmt.Println("Logs")
-
+			fmt.Print("\n-----------------------------------")
+			fmt.Print("| Logs |")
+			fmt.Print("-----------------------------------\n\n")
+			showLogs()
 		case 0:
 			fmt.Println("Saindo do Programa")
 			os.Exit(0) //boa pratica sair com 0
@@ -51,8 +54,7 @@ func showMenu() {
 	fmt.Println("1- Iniciar o Monitoramento")
 	fmt.Println("2- Exibir Logs")
 	fmt.Println("0- Sair do Programa")
-	fmt.Println("-----------------------------------")
-	fmt.Println("")
+	fmt.Print("-----------------------------------\n\n")
 }
 
 func readUserInput() byte {
@@ -110,7 +112,6 @@ func readWebsitesFromFile() []string {
 	for {
 		line, err := file.ReadString('\n')
 		line = strings.TrimSpace(line)
-
 		websites = append(websites, line)
 
 		if err == io.EOF {
@@ -134,7 +135,16 @@ func registerLogs(url string, status bool) {
 		fmt.Println(err)
 	}
 
-	file.WriteString(url + " - online: " + strconv.FormatBool(status) + "\n")
-
+	file.WriteString(time.Now().Format("02/01/2006 15:04:05") + " | " + url + " | online: " + strconv.FormatBool(status) + "\n")
 	file.Close()
+}
+
+func showLogs() {
+	file, err := ioutil.ReadFile("./logs/log.txt")
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(file))
 }

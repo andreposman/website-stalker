@@ -28,11 +28,13 @@ func main() {
 			startMonitoring()
 		case 2:
 			fmt.Print("\n-----------------------------------")
-			fmt.Print("| Logs |")
+			fmt.Print("| LOGS 📄|")
 			fmt.Print("-----------------------------------\n\n")
 			showLogs()
 		case 0:
-			fmt.Println("Saindo do Programa")
+			fmt.Print("\n-----------------------------------")
+			fmt.Print("| SEE YA LATER! 👋|")
+			fmt.Print("-----------------------------------\n\n")
 			os.Exit(0) //boa pratica sair com 0
 
 		default:
@@ -50,11 +52,13 @@ func showIntroduction() {
 }
 
 func showMenu() {
-	fmt.Println("-----------------------------------")
-	fmt.Println("1- Iniciar o Monitoramento")
-	fmt.Println("2- Exibir Logs")
-	fmt.Println("0- Sair do Programa")
+	fmt.Print("\n-----------------------------------")
+	fmt.Print("| MENU |")
 	fmt.Print("-----------------------------------\n\n")
+	fmt.Println("1 - Stalk Websites 🕵")
+	fmt.Println("2 - Show Logs 📄")
+	fmt.Println("0 - Exit 🚪" + "\n")
+	fmt.Print("------------------------------------------------------------------------------\n\n")
 }
 
 func readUserInput() byte {
@@ -66,7 +70,9 @@ func readUserInput() byte {
 
 func startMonitoring() {
 	websites := readWebsitesFromFile()
-	fmt.Println("\nStart watching...")
+	fmt.Print("\n-----------------------------------")
+	fmt.Print("| STALKING...🕵 |")
+	fmt.Print("-----------------------------------\n\n")
 
 	for i := 0; i < quantityMonitoring; i++ {
 		// o range dos meus sites podem me retornar duas coisas, o indice e o valor daquela determinada posição
@@ -78,6 +84,9 @@ func startMonitoring() {
 		time.Sleep(delay * time.Second)
 	}
 
+	fmt.Print("\n-----------------------------------")
+	fmt.Print("| Finished ✅ |")
+	fmt.Print("-----------------------------------\n\n")
 }
 
 func websiteTesting(url string) {
@@ -89,10 +98,10 @@ func websiteTesting(url string) {
 	}
 
 	if response.StatusCode == 200 {
-		fmt.Println("\n>> ", url, "was successfully loaded.")
+		fmt.Println("\n(✅) ➡ ", url, "was successfully loaded.")
 		registerLogs(url, true)
 	} else {
-		fmt.Println("(X) - Status Code:", response.StatusCode, "\nIt seems like the website", url, "is experiencing some problems.")
+		fmt.Println("(❌) ➡  Status Code:", response.StatusCode, "\nIt seems like the website", url, "is experiencing some problems.😞")
 		registerLogs(url, false)
 	}
 }

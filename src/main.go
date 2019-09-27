@@ -10,6 +10,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"./menu"
 )
 
 const quantityMonitoring = 3
@@ -52,13 +54,7 @@ func showIntroduction() {
 }
 
 func showMenu() {
-	fmt.Print("\n-----------------------------------")
-	fmt.Print("| MENU |")
-	fmt.Print("-----------------------------------\n\n")
-	fmt.Println("1 - Stalk Websites 🕵")
-	fmt.Println("2 - Show Logs 📄")
-	fmt.Println("0 - Exit 🚪" + "\n")
-	fmt.Print("------------------------------------------------------------------------------\n\n")
+	menu.Menu()
 }
 
 func readUserInput() byte {
@@ -108,7 +104,7 @@ func websiteTesting(url string) {
 
 func readWebsitesFromFile() []string {
 
-	rawFile, err := os.Open("./websites.txt")
+	rawFile, err := os.Open("../data/websites.txt")
 	var websites []string
 
 	if err != nil {
@@ -138,7 +134,7 @@ func readWebsitesFromFile() []string {
 
 func registerLogs(url string, status bool) {
 
-	file, err := os.OpenFile("./logs/log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	file, err := os.OpenFile("../logs/log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 
 	if err != nil {
 		fmt.Println(err)

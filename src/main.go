@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"./menu"
+	"github.com/andreposman/website-stalker/src/menu"
 )
 
 const quantityMonitoring = 3
@@ -145,7 +145,7 @@ func registerLogs(url string, status bool) {
 }
 
 func showLogs() {
-	file, err := ioutil.ReadFile("./logs/log.txt")
+	file, err := ioutil.ReadFile("../logs/log.txt")
 
 	if err != nil {
 		fmt.Println(err)

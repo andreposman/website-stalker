@@ -72,7 +72,7 @@ func startMonitoring() {
 	websites := readWebsitesFromFile()
 	fmt.Print("\n-----------------------------------")
 	fmt.Print("| STALKING...🕵 |")
-	fmt.Print("-----------------------------------\n\n")
+	fmt.Print("-----------------------------\n\n")
 
 	for i := 0; i < quantityMonitoring; i++ {
 		// o range dos meus sites podem me retornar duas coisas, o indice e o valor daquela determinada posição

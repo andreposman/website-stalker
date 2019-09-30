@@ -6,11 +6,13 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/andreposman/website-stalker/src/terminal"
 )
 
 // RegisterLogs ...
 func RegisterLogs(url string, status bool) {
-
+	terminal.LogsPrint()
 	file, err := os.OpenFile("../logs/log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 
 	if err != nil {

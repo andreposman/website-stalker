@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/andreposman/website-stalker/src/fileio"
+	"github.com/andreposman/website-stalker/src/terminal"
 	"github.com/andreposman/website-stalker/src/tester"
 )
 
@@ -13,6 +14,7 @@ const delay = 5
 
 // StartMonitoring ...
 func StartMonitoring() {
+	terminal.StalkingPrint()
 	websites := fileio.ReadWebsitesFromFile()
 
 	for i := 0; i < quantityMonitoring; i++ {

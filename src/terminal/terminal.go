@@ -2,8 +2,18 @@ package terminal
 
 import (
 	"fmt"
-	"os"
+
+	"github.com/andreposman/website-stalker/pkg/settings"
 )
+
+var (
+	setting *settings.Setting
+)
+
+// Init ...
+func init() {
+	setting = settings.Build()
+}
 
 //Menu ...
 func Menu() {
@@ -19,10 +29,10 @@ func Menu() {
 // Introduction ...
 func Introduction() {
 
-	name := os.Getenv("NAME")
-	version := os.Getenv("VERSION")
+	name := setting.Name
+	version := setting.Version
 
-	fmt.Println(name + "-" + version)
+	fmt.Println(name + " - " + version)
 }
 
 // StalkingPrint ...

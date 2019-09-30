@@ -22,7 +22,7 @@ func WebsiteTesting(url string) {
 		// logger.RegisterLogs(url, true)
 		logger.RegisterLogs(url, true)
 	} else {
-		fmt.Println("(❌) ➡  Status Code:", response.StatusCode, "\nIt seems like the website", url, "is experiencing some problems.😞")
+		fmt.Println("\n(❌) ➡  Status Code:", response.StatusCode, "\nIt seems like the website", url, "is experiencing some problems.😞")
 		logger.RegisterLogs(url, false)
 	}
 }

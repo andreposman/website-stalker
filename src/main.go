@@ -3,9 +3,10 @@ package main
 import (
 	"fmt"
 	"os"
-	"website-stalker/src/logger"
-	"website-stalker/src/monitor"
-	"website-stalker/src/terminal"
+
+	"github.com/andreposman/website-stalker/src/logger"
+	"github.com/andreposman/website-stalker/src/monitor"
+	"github.com/andreposman/website-stalker/src/terminal"
 )
 
 const quantityMonitoring = 3
